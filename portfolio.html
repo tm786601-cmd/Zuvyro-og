@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Tushar Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+:root{
+--bg:#181818;
+--text:#ffffff;
+--card:#242424;
+--main:#a200ff;
+}
+
+body{
+background:var(--bg);
+color:var(--text);
+overflow-x:hidden;
+transition:0.4s;
+}
+
+.light-mode{
+--bg:#f5f5f5;
+--text:#111;
+--card:#e4e4e4;
+}
+
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:20px 10%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(10px);
+z-index:1000;
+}
+
+.logo{
+font-size:2rem;
+font-weight:800;
+background:linear-gradient(to right,#ff4d4d,#a200ff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.links{
+display:flex;
+gap:30px;
+list-style:none;
+}
+
+.links a{
+color:var(--text);
+text-decoration:none;
+font-weight:500;
+}
+
+.links a:hover{
+color:var(--main);
+}
+
+#theme-toggle{
+font-size:2rem;
+cursor:pointer;
+}
+
+#home{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:120px 10%;
+}
+
+#home img{
+width:220px;
+height:220px;
+border-radius:50%;
+object-fit:cover;
+border:4px solid var(--main);
+margin-bottom:25px;
+}
+
+h1{
+font-size:4rem;
+margin-bottom:10px;
+}
+
+h1 span,.heading span{
+background:linear-gradient(to right,#ff4d4d,#a200ff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+h3{
+font-size:2rem;
+margin-bottom:20px;
+}
+
+p{
+max-width:700px;
+line-height:1.8;
+opacity:0.8;
+}
+
+.btn-box{
+margin-top:30px;
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.btn{
+padding:12px 30px;
+border:2px solid var(--main);
+border-radius:10px;
+color:white;
+background:var(--main);
+text-decoration:none;
+font-weight:600;
+}
+
+#about,
+#services,
+#skills,
+#contact{
+padding:100px 10%;
+}
+
+#about{
+background:#202020;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:50px;
+flex-wrap:wrap;
+}
+
+#about img{
+width:320px;
+border-radius:20px;
+}
+
+.heading{
+text-align:center;
+font-size:3rem;
+margin-bottom:50px;
+}
+
+/* Glow effect */
+
+.logo{
+font-size:2rem;
+font-weight:800;
+background:linear-gradient(to right,#ff4d4d,#a200ff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+text-shadow:0 0 10px rgba(162,0,255,.7);
+}
+
+/* Profile image glow */
+
+#home img{
+width:220px;
+height:220px;
+border-radius:50%;
+object-fit:cover;
+border:4px solid var(--main);
+box-shadow:
+0 0 15px rgba(162,0,255,.5),
+0 0 35px rgba(162,0,255,.4),
+0 0 60px rgba(162,0,255,.3);
+}
+
+/* Card glow */
+
+.box{
+background:var(--card);
+padding:35px;
+border-radius:20px;
+transition:.3s;
+}
+
+.box:hover{
+transform:translateY(-8px);
+box-shadow:
+0 0 15px rgba(162,0,255,.4),
+0 0 30px rgba(162,0,255,.3);
+}
+
+/* Button glow */
+
+.btn{
+padding:12px 30px;
+border:2px solid var(--main);
+border-radius:10px;
+background:var(--main);
+color:white;
+text-decoration:none;
+font-weight:600;
+box-shadow:0 0 15px rgba(162,0,255,.4);
+}
+
+.btn:hover{
+box-shadow:
+0 0 15px rgba(162,0,255,.6),
+0 0 35px rgba(162,0,255,.4);
+}
+
+/* Section title glow */
+
+.heading span{
+background:linear-gradient(to right,#ff4d4d,#a200ff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+text-shadow:0 0 15px rgba(162,0,255,.5);
+}
+
+.services-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.box{
+background:var(--card);
+padding:35px;
+border-radius:20px;
+text-align:center;
+transition:0.3s;
+}
+
+.box:hover{
+transform:translateY(-8px);
+}
+
+.box i{
+font-size:3rem;
+color:var(--main);
+margin-bottom:15px;
+}
+
+form{
+max-width:650px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+input,textarea{
+padding:15px;
+border:none;
+border-radius:10px;
+background:var(--card);
+color:var(--text);
+}
+
+textarea{
+height:150px;
+resize:none;
+}
+
+.contact-info{
+margin-top:30px;
+text-align:center;
+}
+
+.p{
+    text-align: center;
+}
+
+.t{
+    text-align: center;
+}
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25d366;
+color:white;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:2rem;
+text-decoration:none;
+}
+
+@media(max-width:768px){
+
+.links{
+display:none;
+}
+
+h1{
+font-size:2.5rem;
+}
+
+h3{
+font-size:1.5rem;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+
+<a href="#" class="logo">Tushar</a>
+
+<ul class="links">
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+<i class='bx bx-moon' id="theme-toggle"></i>
+
+</nav>
+
+<section id="home">
+
+<img src="t2.jpeg" alt="Tushar">
+
+<h1>Hello, I'm <span>Tushar</span></h1>
+
+<h3>Graphic Designer</h3>
+
+<p>
+Creative Graphic Designer based in India.
+ I create modern brand visuals, social media
+  designs, posters, banners, and promotional 
+  content for new businesses. Passionate about
+   clean and creative designs that help brands
+    grow and attract attention online. I focus on quality, modern style,
+ and delivering visuals that match each brand’s identity perfectly.
+</p>
+
+<div class="btn-box">
+<a href="#contact" class="btn">Hire Me</a>
+<a href="#about" class="btn">About Me</a>
+<a href="gallery.html" class="btn">View My Designs</a>
+</div>
+
+</section>
+
+<section id="about">
+
+<img src="tushar.jpeg" alt="Tushar">
+
+<div>
+<h2 class="heading"><span>About Me</span></h2>
+
+<p>
+I’m Tushar, a creative graphic designer based in
+ India, passionate about creating modern and
+  eye-catching visuals for brands and businesses.
+   I specialize in social media designs, banners,
+    posters, and promotional content that help brands 
+    stand out online. I enjoy turning ideas into professional 
+    designs with a clean and creative style while
+ focusing on quality and attention to detail.
+</p>
+
+</div>
+</section>
+
+<section id="services">
+
+<h1 class="heading"><span>Services</span></h1>
+
+<div class="services-container">
+
+<div class="box">
+<i class='bx bx-palette'></i>
+<h2>Graphic Design</h2>
+</div>
+
+<div class="box">
+<i class='bx bx-image'></i>
+<h2>Social Media Design</h2>
+</div>
+
+<div class="box">
+<i class='bx bx-bulb'></i>
+<h2>Brand Identity</h2>
+</div>
+
+</div>
+</section>
+
+<section id="skills">
+
+<h1 class="heading">
+<span>Skills</span>
+</h1>
+
+<div class="services-container">
+
+<div class="box">
+<i class='bx bx-palette'></i>
+<h2>Graphic Design</h2>
+</div>
+
+<div class="box">
+<i class='bx bx-brush'></i>
+<h2>Brand Design</h2>
+</div>
+
+<div class="box">
+<i class='bx bx-devices'></i>
+<h2>Social Media Design</h2>
+</div>
+
+<div class="box">
+<i class='bx bx-image'></i>
+<h2>Poster & Banner Design</h2>
+</div>
+
+<div class="box">
+<i class='bx bx-camera'></i>
+<h2>Thumbnail Design</h2>
+</div>
+
+<div class="box">
+<i class='bx bx-edit'></i>
+<h2>Creative Editing</h2>
+</div>
+
+<div class="box">
+<i class='bx bx-layer'></i>
+<h2>Canva Design</h2>
+</div>
+
+<div class="box">
+<i class='bx bx-photo-album'></i>
+<h2>Adobe Photoshop</h2>
+</div>
+
+<div class="box">
+<i class='bx bx-bulb'></i>
+<h2>Visual Branding</h2>
+</div>
+
+<div class="box">
+<i class='bx bx-pencil'></i>
+<h2>Content Creation</h2>
+</div>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<h1 class="heading">
+<span>Contact Me</span>
+</h1>
+
+<form action="https://formsubmit.co/tm1050932@gmail.com" method="POST">
+
+<input type="hidden" name="_captcha" value="false">
+
+<input type="text" name="name" placeholder="Your Name" required>
+
+<input type="email" name="email" placeholder="Your Email" required>
+
+<textarea name="message" placeholder="Your Message"></textarea>
+
+<button class="btn">Send Message</button>
+
+</form>
+
+<div class="contact-info">
+
+<p class="p">📞 9602962076</p>
+
+<p class="t">✉️ tm1050932@gmail.com</p>
+
+</div>
+
+</section>
+
+<a href="https://wa.me/919602962076" class="whatsapp" target="_blank">
+<i class='bx bxl-whatsapp'></i>
+</a>
+
+<script>
+
+const themeToggle=document.getElementById("theme-toggle");
+
+themeToggle.onclick=()=>{
+
+document.body.classList.toggle("light-mode");
+
+if(document.body.classList.contains("light-mode")){
+themeToggle.classList.replace("bx-moon","bx-sun");
+}else{
+themeToggle.classList.replace("bx-sun","bx-moon");
+}
+
+};
+
+</script>
+
+</body>
+</html>
